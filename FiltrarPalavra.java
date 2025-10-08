@@ -12,7 +12,7 @@ public class FiltrarPalavra implements Filter {
     @Override
     public boolean accepts(String query) {
         if (query == null) return false;
-        String s = normalize(query).toLowerCase(Locale.ROOT);
+        String s = normalize(query.trim()).toLowerCase(Locale.ROOT); // trim evita falsos negativos
         return s.contains(needleNorm);
     }
 
